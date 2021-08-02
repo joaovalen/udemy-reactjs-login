@@ -4,6 +4,8 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
 
+import LoginV2 from './components/Login/LoginV2'
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
  
@@ -13,7 +15,7 @@ function App() {
     if (storedUserInfo === '1') {
       setIsLoggedIn(true);
     }
-  }, [])
+  }, [isLoggedIn])
 
   const loginHandler = (email, password) => {
     // We should of course check email and password
@@ -24,6 +26,7 @@ function App() {
 
   const logoutHandler = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn')
   };
 
   return (
